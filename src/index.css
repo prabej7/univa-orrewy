@@ -1,0 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/sf-ui-display');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'SF UI Display', sans-serif;
+                                                
+}
