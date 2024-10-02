@@ -1,51 +1,57 @@
-# React + TypeScript + Vite
+# Univa Orrery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Univa Orrery** is an interactive web application designed to simulate and visualize planetary systems, satellites, and other celestial bodies. This project integrates 3D models and data-driven animations, allowing users to explore planets, satellites, and orbits in a dynamic and immersive way. Built with React, Framer Motion, Three.js, and other modern web technologies, the app provides a unique and educational experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive 3D Models:** Visualize planets, satellites, and celestial objects using Three.js and React Three Fiber.
+- **Dynamic Search:** Instantly search and filter planets and satellites within the app.
+- **Smooth Animations:** Incorporates Framer Motion for seamless transitions and animations.
+- **Planetary Data:** View detailed descriptions and key data points (like distance and orbital parameters) for each celestial body.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend:**
+  - React
+  - TypeScript
+  - Gsap (for animations)
+  - Three.js / React Three Fiber (for 3D rendering)
+  - Tailwind CSS (for styling)
+  
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   git clone https://github.com/prabej7/univa-orrewy.git
+   cd univa-orrewy
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# earth-model-demo
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000` to explore the application.
+
+5. Deployed on Vercel at [Univa Orrery](https://univa-orrewy.vercel.app/)
+## Usage
+
+- **Exploration:** Use the search functionality to quickly find planets and satellites.
+- **Navigation:** Click on celestial objects to view more information about them.
+- **3D Interaction:** Zoom and rotate the 3D models for a full immersive experience.
+
+## Roadmap
+
+- Adding more detailed 3D models and data for additional celestial objects.
+- Implementing planetary orbit animations.
+- Integrating more educational content such as historical context and scientific data analysis.
+
+
