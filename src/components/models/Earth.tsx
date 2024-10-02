@@ -121,10 +121,10 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
         <primitive object={issScene} scale={[0.002, 0.002, 0.002]} />
       </group>
       <group position={[1, 0, 1.55]} onClick={() => handleClick("Hubble")}>
-        <primitive object={hubbleScene} scale={[0.01, 0.01, 0.01]} />
+        <primitive object={hubbleScene} scale={[0.005, 0.005, 0.005]} />
       </group>
       <group position={[-1, 1, 1.6]} onClick={() => handleClick("Terra")}>
-        <primitive object={terraScene} scale={[0.00001, 0.00001, 0.00001]} />
+        <primitive object={terraScene} scale={[0.000005, 0.000005, 0.000005]} />
       </group>
       <group position={[1, -1, 1.6]} onClick={() => handleClick("ACRIMSAT")}>
         <primitive object={acrimsatScene} scale={[0.00001, 0.00001, 0.00001]} />
@@ -133,7 +133,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
         position={[-1.5, 0.5, 1.66]}
         onClick={() => handleClick("Jason Satellite")}
       >
-        <primitive object={landsatScene} scale={[0.001, 0.001, 0.001]} />
+        <primitive object={landsatScene} scale={[0.0002, 0.0002, 0.0002]} />
       </group>
 
       {/* Halley Comet */}
@@ -193,7 +193,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
 
       <mesh
         position={[0, 0, 3]} // Adjusted for geosynchronous orbit (~35,800 km)
-        scale={[0.05, 0.05, 0.05]} // Same scale for consistency
+        scale={[0.007, 0.007, 0.007]} // Same scale for consistency
         onClick={() => handleClick("TDRS")}
       >
         <primitive object={tdrssScene} />

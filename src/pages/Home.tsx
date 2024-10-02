@@ -47,7 +47,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="bg-black h-screen w-screen overflow-clip overflow-x-clip">
+    <div className="bg-black h-screen w-screen overflow-clip overflow-x-clip overflow-y-clip">
       <Nav
         onClose={() => {
           setOpen(false);

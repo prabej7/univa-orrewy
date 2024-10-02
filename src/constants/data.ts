@@ -88,7 +88,8 @@ Sun to Mercury.
   {
     id: 7,
     name: "Uranus",
-    description: "Uranus is an ice giant with a unique 90-degree tilt, causing extreme seasons. It has 13 faint rings and 28 moons. Its blue-green color comes from methane in its atmosphere. Uranus is the coldest planet in our solar system, with an average temperature of -320°F (-195°C). Its mass is mostly composed of icy materials (water, methane, and ammonia) surrounding a rocky core.",
+    description:
+      "Uranus is an ice giant with a unique 90-degree tilt, causing extreme seasons. It has 13 faint rings and 28 moons. Its blue-green color comes from methane in its atmosphere. Uranus is the coldest planet in our solar system, with an average temperature of -320°F (-195°C). Its mass is mostly composed of icy materials (water, methane, and ammonia) surrounding a rocky core.",
     x: -10.51676703630864,
     y: -0.21180173409574365,
     z: -41.08932215616667,
@@ -99,7 +100,8 @@ Sun to Mercury.
   {
     id: 8,
     name: "Neptune",
-    description: "Neptune, the eighth planet from the Sun, is an ice giant known for its blue color and strong winds. It was the first planet discovered through mathematical predictions. Neptune has a rocky core, is about 17 times Earth's mass, and has at least five rings. Its atmosphere is primarily hydrogen, helium, and methane, with an average temperature of -346°F (-210°C) at the cloud tops.",
+    description:
+      "Neptune, the eighth planet from the Sun, is an ice giant known for its blue color and strong winds. It was the first planet discovered through mathematical predictions. Neptune has a rocky core, is about 17 times Earth's mass, and has at least five rings. Its atmosphere is primarily hydrogen, helium, and methane, with an average temperature of -346°F (-210°C) at the cloud tops.",
     x: -10.51676703630864,
     y: -0.21180173409574365,
     z: -41.08932215616667,
@@ -178,76 +180,80 @@ const Comets = [
   },
 ];
 
+
+
 const Satellites = [
   {
     id: 1,
     name: "Moon",
-    description: "The only natural satellite of Earth.",
+    description: "Earth's only natural satellite, influencing tides and stabilizing its axial tilt.",
     x: 0.01103554060671541,
     y: 0.018060854693510982,
     z: 13.408741782359398,
     texture: "/textures/moon/moon.jpg",
+    distance: "Average distance: 225,300 km, orbiting Earth in 27.3 days."
   },
   {
     id: 2,
     name: "ISS",
-    description:
-      "International Space Station, a modular space station in low Earth orbit.",
+    description: "A multinational space station conducting research in low Earth orbit.",
     x: -3.1212687463330546,
     y: -0.6001289566152528,
     z: 14.796341297690576,
     texture: "/models/demo/ISS_stationary.glb",
+    distance: "Low Earth orbit, vital for scientific research and international collaboration."
   },
   {
     id: 3,
     name: "Hubble",
-    description:
-      "Hubble Space Telescope, a space telescope launched into low Earth orbit in 1990.",
-    x: -2.077590951752169,
-    y: -0.6244720929616503,
-    z: 14.829902297011591,
+    description: "A space telescope providing high-resolution images and breakthroughs in astrophysics.",
+    x: -2.065415383908572,
+    y: -0.6171265593917391,
+    z: 14.83119459678118,
     texture: "/models/demo/Hubble.glb",
+    distance: "Low Earth orbit, crucial for observing distant galaxies and space phenomena."
   },
   {
     id: 4,
     name: "Terra",
-    description:
-      "A multi-national NASA scientific research satellite in a Sun-synchronous orbit around Earth.",
+    description: "NASA's satellite monitoring Earth's climate and environmental changes.",
     x: -4.0737263415761245,
     y: 0.27899562550581064,
     z: 15.274932629351019,
     texture: "/models/demo/Terra.glb",
+    distance: "Sun-synchronous orbit, provides consistent observation of Earth's surface and atmosphere."
   },
   {
     id: 5,
     name: "ACRIMSAT",
-    description:
-      "Active Cavity Radiometer Irradiance Monitor Satellite, designed to measure solar luminosity.",
+    description: "NASA's satellite measuring solar radiation and its impact on Earth's climate.",
     x: -2.046356827698301,
     y: -1.5446158743051186,
     z: 14.48726630982377,
     texture: "/models/demo/Active Cavity Irradiance Monitor Satellite.glb",
+    distance: "Polar orbit, monitoring solar radiation and aiding climate research until 2013."
   },
   {
     id: 6,
     name: "TDRS",
-    description:
-      "Tracking and Data Relay Satellite, part of a network of communication satellites used by NASA.",
-    x: -2.938645290477203,
-    y: -1.1825719647202346,
-    z: 16.12217236183329,
+    description: "A network of satellites providing communication for NASA's space missions.",
+    x: -3.0427203847002255,
+    y: -1.1988464416044267,
+    z: 16.1520114485097,
     texture: "/models/demo/Tracking and Data Relay Satellites (TDRS).glb",
+    distance: "Geosynchronous orbit, ensuring continuous communication with low Earth orbit satellites."
   },
   {
     id: 7,
     name: "Jason",
-    description:
-      "A series of satellites designed to measure sea surface height by satellite altimetry.",
-    x: -4.524077545733934,
-    y: -0.19204060158923203,
-    z: 15.131271533999296,
-    texture: "/models/demo/Jason.glb",
+    description: "A satellite series measuring sea surface height, aiding climate and ocean studies.",
+    x: -4.552495765561153,
+    y: -0.20266708419886498,
+    z: 15.126812623497223,
+    distance: "Polar orbit, providing global data on sea level and ocean circulation.",
+    texture: "/models/demo/Jason.glb"
   },
 ];
+
 
 export { Planets, Comets, Satellites };

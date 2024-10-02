@@ -97,7 +97,7 @@ const SolarSystem: React.FC<Props> = ({ onClick }) => {
       />
 
       {/* Ambient light to give soft lighting across the scene */}
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.6} />
 
       {/* Optional directional light for additional sunlight effect */}
       <directionalLight position={[10, 0, -10]} intensity={1.5} castShadow />
