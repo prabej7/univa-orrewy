@@ -133,6 +133,7 @@ const Menu: React.FC<{
     }));
     Satellites.forEach((satellite) => {
       if (satellite.id === id) {
+        // @ts-ignore
         let type = "sattelite";
         if (satellite.name === "Moon") {
           type = "moon";
