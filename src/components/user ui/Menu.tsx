@@ -204,7 +204,7 @@ const Menu: React.FC<{
         className="backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-800 h-screen w-screen"
       >
         <SheetHeader>
-          <SheetTitle className="text-white">Univa Orrewy Menu</SheetTitle>
+          <SheetTitle className="text-white">Univa Orrery Menu</SheetTitle>
           <SheetDescription>
             Here are some options to explore the universe.
           </SheetDescription>

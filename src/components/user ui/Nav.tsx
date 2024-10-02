@@ -30,9 +30,9 @@ const Nav: React.FC<{
         <div className="flex items-center gap-2">
           <div className="text-5xl">🌍</div>
           <div>
-            <h1 className="text-white text-2xl font-black">UNIVA ORREWY</h1>
+            <h1 className="text-white text-2xl font-black">UNIVA ORRERY</h1>
             <p className="text-white font-light text-sm">
-              Explore the cosmos from your screen
+              Explore the cosmos from your screen.
             </p>
           </div>
         </div>
