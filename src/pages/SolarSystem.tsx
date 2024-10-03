@@ -88,6 +88,7 @@ const SolarSystem: React.FC<Props> = ({ onClick }) => {
 
       {/* Earth specific instance */}
       <Earth
+        isModels={true}
         onClick={(position) => onClick(position, "Earth")}
         position={[
           2.5 * 5.5 * Math.cos((2 / planets.length) * 2 * Math.PI),

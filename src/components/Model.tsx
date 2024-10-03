@@ -15,6 +15,7 @@ interface Props {
   name: string;
   onClick: (position: Position) => void;
   glowColor?: string; // Optional glow color prop
+  
 }
 
 const Model: React.FC<Props> = ({ position, args, texture, onClick, glowColor = "#00ff00" }) => {

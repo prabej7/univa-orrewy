@@ -6,10 +6,12 @@ const Nav: React.FC<{
   on3DView: (
     position: { x: number; y: number; z: number },
     name: string
+    
   ) => void;
   onReadMore?: number;
   onClose: () => void;
-}> = ({ on3DView, onReadMore, onClose }) => {
+  onKepler: () => void;
+}> = ({ on3DView, onReadMore, onClose, onKepler }) => {
   const [_, setSearchBoxOpen] = useState(false);
 
   document.addEventListener("keydown", (e) => {
@@ -36,7 +38,9 @@ const Nav: React.FC<{
             </p>
           </div>
         </div>
-
+        <div>
+          <button onClick={onKepler}>Switch to Kepler</button>
+        </div>
         <div>
           <ul className="flex items-center gap-12">
             <li

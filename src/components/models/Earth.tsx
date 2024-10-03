@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { STLLoader } from "three-stdlib";
 
-const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
+const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
   const earthRef = useRef<THREE.Group>(null);
   const textRefs = useRef<(THREE.Mesh | null)[]>([]);
   const [hovered, setHovered] = useState(false); // State to track hover status
@@ -20,7 +20,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
     ]
   );
 
-  const [] = useGLTF([],true);
+  const [] = useGLTF([], true);
   // Load satellite models
   const { scene: issScene } = useGLTF("/models/ISS_stationary.glb");
   const { scene: hubbleScene } = useGLTF("/models/Hubble.glb", true);
@@ -34,7 +34,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
     true
   );
   const { scene: landsatScene } = useGLTF("/models/Jason.glb", true);
-  
+
   const halley = useLoader(STLLoader, "/models/hw1.stl");
   const toutatis = useLoader(STLLoader, "/models/toutatis.stl");
   const mithra = useLoader(STLLoader, "/models/mithra.stl");
@@ -61,8 +61,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
       ref={earthRef}
       rotation={[0.41, 0, 0]}
       position={position}
-      onClick={(e) => onClick(e.point)} 
-      
+      onClick={(e) => onClick(e.point)}
     >
       {/* Earth and Moon */}
       <mesh
@@ -103,102 +102,114 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick }) => {
         <meshStandardMaterial map={moonTexture} />
       </mesh>
 
-
       {hovered && (
         <mesh position={[0, 0, 0]}>
           <icosahedronGeometry args={[1.02 * 1.2, 16]} />
           <meshBasicMaterial
             color={"#005673"}
             transparent={true}
-            opacity={0.4} 
-            side={THREE.BackSide} 
+            opacity={0.4}
+            side={THREE.BackSide}
           />
         </mesh>
       )}
 
-      {/* Satellites Positioned Relative to Earth */}
-      <group position={[0, 0, 1.5]} onClick={() => handleClick("ISS")}>
-        <primitive object={issScene} scale={[0.002, 0.002, 0.002]} />
-      </group>
-      <group position={[1, 0, 1.55]} onClick={() => handleClick("Hubble")}>
-        <primitive object={hubbleScene} scale={[0.005, 0.005, 0.005]} />
-      </group>
-      <group position={[-1, 1, 1.6]} onClick={() => handleClick("Terra")}>
-        <primitive object={terraScene} scale={[0.000005, 0.000005, 0.000005]} />
-      </group>
-      <group position={[1, -1, 1.6]} onClick={() => handleClick("ACRIMSAT")}>
-        <primitive object={acrimsatScene} scale={[0.00001, 0.00001, 0.00001]} />
-      </group>
-      <group
-        position={[-1.5, 0.5, 1.66]}
-        onClick={() => handleClick("Jason Satellite")}
-      >
-        <primitive object={landsatScene} scale={[0.0002, 0.0002, 0.0002]} />
-      </group>
+      {isModels && (
+        <>
+          {/* Satellites Positioned Relative to Earth */}
+          <group position={[0, 0, 1.5]} onClick={() => handleClick("ISS")}>
+            <primitive object={issScene} scale={[0.002, 0.002, 0.002]} />
+          </group>
+          <group position={[1, 0, 1.55]} onClick={() => handleClick("Hubble")}>
+            <primitive object={hubbleScene} scale={[0.005, 0.005, 0.005]} />
+          </group>
+          <group position={[-1, 1, 1.6]} onClick={() => handleClick("Terra")}>
+            <primitive
+              object={terraScene}
+              scale={[0.000005, 0.000005, 0.000005]}
+            />
+          </group>
+          <group
+            position={[1, -1, 1.6]}
+            onClick={() => handleClick("ACRIMSAT")}
+          >
+            <primitive
+              object={acrimsatScene}
+              scale={[0.00001, 0.00001, 0.00001]}
+            />
+          </group>
+          <group
+            position={[-1.5, 0.5, 1.66]}
+            onClick={() => handleClick("Jason Satellite")}
+          >
+            <primitive object={landsatScene} scale={[0.0002, 0.0002, 0.0002]} />
+          </group>
 
-      {/* Halley Comet */}
-      <mesh
-        position={[0, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Halley Comet")}
-      >
-        <primitive object={halley} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          {/* Halley Comet */}
+          <mesh
+            position={[0, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Halley Comet")}
+          >
+            <primitive object={halley} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[2, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Toutatis")}
-      >
-        <primitive object={toutatis} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[2, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Toutatis")}
+          >
+            <primitive object={toutatis} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[4, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Mithra")}
-      >
-        <primitive object={mithra} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[4, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Mithra")}
+          >
+            <primitive object={mithra} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[6, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Golevka")}
-      >
-        <primitive object={golevka} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[6, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Golevka")}
+          >
+            <primitive object={golevka} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[8, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Geographos")}
-      >
-        <primitive object={geographos} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[8, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Geographos")}
+          >
+            <primitive object={geographos} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[10, 0, 2]}
-        scale={[0.05, 0.05, 0.05]}
-        onClick={() => handleClick("Bogus Bennu")}
-      >
-        <primitive object={bogusBennu} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[10, 0, 2]}
+            scale={[0.05, 0.05, 0.05]}
+            onClick={() => handleClick("Bogus Bennu")}
+          >
+            <primitive object={bogusBennu} />
+            <meshStandardMaterial color="white" />
+          </mesh>
 
-      <mesh
-        position={[0, 0, 3]} // Adjusted for geosynchronous orbit (~35,800 km)
-        scale={[0.007, 0.007, 0.007]} // Same scale for consistency
-        onClick={() => handleClick("TDRS")}
-      >
-        <primitive object={tdrssScene} />
-        <meshStandardMaterial color="white" />
-      </mesh>
+          <mesh
+            position={[0, 0, 3]} // Adjusted for geosynchronous orbit (~35,800 km)
+            scale={[0.007, 0.007, 0.007]} // Same scale for consistency
+            onClick={() => handleClick("TDRS")}
+          >
+            <primitive object={tdrssScene} />
+            <meshStandardMaterial color="white" />
+          </mesh>
+        </>
+      )}
     </group>
   );
 };
