@@ -14,6 +14,7 @@ const Home: React.FC = () => {
   const [_, setOpen] = useState(false);
   const [selectedPlanet, setSelectedPlanet] = useState<Planet>();
   const [readMore, setReadMore] = useState<number>();
+
   const handleSolarSystemClick = (position: {
     x: number;
     y: number;
@@ -49,6 +50,7 @@ const Home: React.FC = () => {
   return (
     <div className="bg-black h-screen w-screen overflow-clip overflow-x-clip overflow-y-clip">
       <Nav
+        onKepler={() => {}}
         onClose={() => {
           setOpen(false);
           setReadMore(undefined);
