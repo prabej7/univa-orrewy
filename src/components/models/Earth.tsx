@@ -20,7 +20,6 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
     ]
   );
 
-  const [] = useGLTF([], true);
   // Load satellite models
   const { scene: issScene } = useGLTF("/models/ISS_stationary.glb");
   const { scene: hubbleScene } = useGLTF("/models/Hubble.glb", true);
@@ -68,11 +67,11 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
         onPointerOver={() => setHovered(true)} // Set hovered state
         onPointerOut={() => setHovered(false)}
       >
-        <icosahedronGeometry args={[1, 16]} />
+        <icosahedronGeometry args={[0.1, 16]} />
         <meshStandardMaterial map={earthDay} flatShading />
       </mesh>
       <mesh>
-        <icosahedronGeometry args={[1.01, 16]} />
+        <icosahedronGeometry args={[0.101, 16]} />
         <meshStandardMaterial
           map={earthNight}
           transparent
@@ -80,7 +79,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
         />
       </mesh>
       <mesh>
-        <icosahedronGeometry args={[1.02, 16]} />
+        <icosahedronGeometry args={[0.104, 16]} />
         <meshStandardMaterial
           map={earthCloud}
           transparent
@@ -88,7 +87,7 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
         />
       </mesh>
       <mesh>
-        <icosahedronGeometry args={[1.02, 16]} />
+        <icosahedronGeometry args={[0.106, 16]} />
         <meshStandardMaterial
           map={earthSpec}
           transparent
@@ -97,14 +96,14 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
         />
       </mesh>
 
-      <mesh position={[3, 0, 0]} scale={[0.272, 0.272, 0.272]}>
-        <sphereGeometry args={[0.272, 16, 16]} />
+      <mesh position={[3, 0, 0]} scale={[0.0272, 0.0272, 0.0272]}>
+        <sphereGeometry args={[0.0272, 0.16, 0.16]} />
         <meshStandardMaterial map={moonTexture} />
       </mesh>
 
       {hovered && (
         <mesh position={[0, 0, 0]}>
-          <icosahedronGeometry args={[1.02 * 1.2, 16]} />
+          <icosahedronGeometry args={[0.2 * 1.2, 16]} />
           <meshBasicMaterial
             color={"#005673"}
             transparent={true}
@@ -117,38 +116,47 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
       {isModels && (
         <>
           {/* Satellites Positioned Relative to Earth */}
-          <group position={[0, 0, 1.5]} onClick={() => handleClick("ISS")}>
-            <primitive object={issScene} scale={[0.002, 0.002, 0.002]} />
+          <group position={[0, 0, 0.15]} onClick={() => handleClick("ISS")}>
+            <primitive object={issScene} scale={[0.0002, 0.0002, 0.0002]} />
           </group>
-          <group position={[1, 0, 1.55]} onClick={() => handleClick("Hubble")}>
-            <primitive object={hubbleScene} scale={[0.005, 0.005, 0.005]} />
+          <group
+            position={[0.1, 0, 0.155]}
+            onClick={() => handleClick("Hubble")}
+          >
+            <primitive object={hubbleScene} scale={[0.0005, 0.0005, 0.0005]} />
           </group>
-          <group position={[-1, 1, 1.6]} onClick={() => handleClick("Terra")}>
+          <group
+            position={[-0.1, 0.1, 0.16]}
+            onClick={() => handleClick("Terra")}
+          >
             <primitive
               object={terraScene}
-              scale={[0.000005, 0.000005, 0.000005]}
+              scale={[0.0000005, 0.0000005, 0.0000005]}
             />
           </group>
           <group
-            position={[1, -1, 1.6]}
+            position={[0.1, -0.1, 0.16]}
             onClick={() => handleClick("ACRIMSAT")}
           >
             <primitive
               object={acrimsatScene}
-              scale={[0.00001, 0.00001, 0.00001]}
+              scale={[0.000001, 0.000001, 0.000001]}
             />
           </group>
           <group
-            position={[-1.5, 0.5, 1.66]}
+            position={[-0.15, 0.05, 0.166]}
             onClick={() => handleClick("Jason Satellite")}
           >
-            <primitive object={landsatScene} scale={[0.0002, 0.0002, 0.0002]} />
+            <primitive
+              object={landsatScene}
+              scale={[0.00002, 0.00002, 0.00002]}
+            />
           </group>
 
           {/* Halley Comet */}
           <mesh
-            position={[0, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Halley Comet")}
           >
             <primitive object={halley} />
@@ -156,8 +164,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[2, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0.2, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Toutatis")}
           >
             <primitive object={toutatis} />
@@ -165,8 +173,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[4, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0.4, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Mithra")}
           >
             <primitive object={mithra} />
@@ -174,8 +182,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[6, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0.6, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Golevka")}
           >
             <primitive object={golevka} />
@@ -183,8 +191,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[8, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0.8, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Geographos")}
           >
             <primitive object={geographos} />
@@ -192,8 +200,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[10, 0, 2]}
-            scale={[0.05, 0.05, 0.05]}
+            position={[0.01, 0, 0.2]}
+            scale={[0.005, 0.005, 0.005]}
             onClick={() => handleClick("Bogus Bennu")}
           >
             <primitive object={bogusBennu} />
@@ -201,8 +209,8 @@ const EarthMesh: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
           </mesh>
 
           <mesh
-            position={[0, 0, 3]} // Adjusted for geosynchronous orbit (~35,800 km)
-            scale={[0.007, 0.007, 0.007]} // Same scale for consistency
+            position={[0, 0, 0.3]} // Adjusted for geosynchronous orbit (~35,800 km)
+            scale={[0.0007, 0.0007, 0.0007]} // Same scale for consistency
             onClick={() => handleClick("TDRS")}
           >
             <primitive object={tdrssScene} />
