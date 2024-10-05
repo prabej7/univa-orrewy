@@ -159,6 +159,9 @@ const Home: React.FC = () => {
             minPolarAngle={0}
             enableZoom={true}
             enablePan={false}
+            onChange={(e) => {
+              console.log(e?.target);
+            }}
           />
         </Canvas>
       </Suspense>
