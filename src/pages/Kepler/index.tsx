@@ -138,10 +138,10 @@ const Home: React.FC = () => {
         >
           <Stars
             radius={100}
-            depth={50}
-            count={2000}
+            depth={200}
+            count={5000}
             factor={4}
-            saturation={0}
+            saturation={1}
             fade
           />
           <SolarSystem
