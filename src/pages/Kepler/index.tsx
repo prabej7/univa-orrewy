@@ -9,6 +9,7 @@ import { Comets, Planet, Planets, Satellites } from "@/constants/data";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import SpeedControl from "@/components/user ui/SpeedControl";
 
 const Home: React.FC = () => {
   const controlsRef = useRef<any>(null);
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
   const [selectedPlanet, setSelectedPlanet] = useState<Planet>();
   const [readMore, setReadMore] = useState<number>();
   const [isKepler, setIsKepler] = useState(false);
+  const [speed, setSpeed] = useState<number>(20);
   const handleSolarSystemClick = (position: {
     x: number;
     y: number;
@@ -81,6 +83,15 @@ const Home: React.FC = () => {
 
   return (
     <div className="bg-black h-screen w-screen overflow-clip overflow-x-clip overflow-y-clip">
+      {isKepler && (
+        <div className="absolute bottom-44 left-[45%] z-20">
+          <SpeedControl
+            onChange={(e) => {
+              setSpeed(Number(e.target.value));
+            }}
+          />
+        </div>
+      )}
       <Nav
         onKepler={() => setIsKepler(!isKepler)}
         onClose={() => {
@@ -177,6 +188,7 @@ const Home: React.FC = () => {
             fade
           />
           <SolarSystem
+            speed={speed}
             onLabelClick={handleLableClick}
             isKepler={isKepler}
             onClick={(position, name) => {

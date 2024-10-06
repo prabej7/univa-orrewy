@@ -113,7 +113,8 @@ Sun to Mercury.
   {
     id: 9,
     name: "Sun",
-    description: "The star at the center of our solar system.",
+    description:
+      "The Sun is a huge ball of hydrogen and helium held together by its own gravity. It has several regions, including the core, radiative zone, convection zone, photosphere, chromosphere, transition zone, and corona. The Sun's heat and light are powered by nuclear reactions in the core. Energy from the core is carried outward by radiation and convection. The Sun's magnetic fields extend out into space to form the interplanetary magnetic field, which is carried through the solar system by the solar wind.",
     x: 0.2995466668868829,
     y: 0.16395455902711653,
     z: 0.9387653702059069,
@@ -127,7 +128,8 @@ const Comets = [
   {
     id: 1,
     name: "Halley's Comet",
-    description: "The most famous comet in the solar system.",
+    description:
+      "Halley's Comet is a famous comet that orbits the Sun every 76 years. It was named after British astronomer Edmond Halley, who determined that periodic sightings of the comet were in fact of the same object. During its last close approach in 1986, several spacecraft were sent to examine it. The comet's orbit takes it from within the orbit of Venus to beyond the orbit of Neptune. Halley's Comet is also responsible for the annual Eta Aquarid and Orionid meteor showers.",
     x: -7.552960150067171,
     y: -2.4437396827599023,
     z: -2.384149892473595,
@@ -136,7 +138,8 @@ const Comets = [
   {
     id: 2,
     name: "Toutatis",
-    description: "An Apollo asteroid with an unusual rotation.",
+    description:
+      "Toutatis is an asteroid that was closely observed by NASA in December 2012. It has a very slow rotational state and is expected to safely pass by Earth again in November 2069. There is no risk of an Earth impact for the next several centuries.",
     x: -5.383219022769962,
     y: -0.26289314296127103,
     z: -4.675647331639647,
@@ -145,7 +148,8 @@ const Comets = [
   {
     id: 3,
     name: "Mithra",
-    description: "A Mars-crossing asteroid with an irregular shape.",
+    description:
+      'Mithra is a mid-sized asteroid that orbits the Sun every 3.26 years. It has been classified as a "Potentially Hazardous Asteroid" due to its predicted close passes with Earth. Mithra is about 1.8 kilometers in diameter and completes a rotation on its axis every 67.50 hours. It is not considered a viable target for human exploration due to its relatively large distance from Earth\'s orbit.',
     x: -3.315645843114135,
     y: 0.6253530173489932,
     z: -4.8440332015533105,
@@ -154,7 +158,8 @@ const Comets = [
   {
     id: 4,
     name: "Golevka",
-    description: "An Earth-crossing asteroid named after three observatories.",
+    description:
+      'Golevka is a small asteroid that orbits the Sun every 3.92 years. It has been classified as a "Potentially Hazardous Asteroid" due to its predicted close passes with Earth. Golevka is about 0.5 kilometers in diameter and completes a rotation on its axis every 6.03 hours. It is not considered a viable target for human exploration due to its relatively large distance from Earth\'s orbit.',
     x: -3.654140021491372,
     y: -0.4240800172050749,
     z: -4.838082375440323,
@@ -163,7 +168,8 @@ const Comets = [
   {
     id: 5,
     name: "Geographos",
-    description: "An elongated near-Earth asteroid.",
+    description:
+      'Geographos is a mid-sized asteroid that orbits the Sun every 1.39 years. It has been classified as a "Potentially Hazardous Asteroid" due to its predicted close passes with Earth. Geographos is about 2.6 kilometers in diameter and completes a rotation on its axis every 5.22 hours. It was last officially observed on April 21, 2023.',
     x: -5.234604149764206,
     y: 0.855617102546409,
     z: -4.574020989451821,
@@ -173,7 +179,7 @@ const Comets = [
     id: 6,
     name: "Bennu",
     description:
-      "A potentially hazardous asteroid explored by OSIRIS-REx mission.",
+      "Bennu is a small, near-Earth asteroid that was explored by NASA's OSIRIS-REx mission. It is a carbon-rich asteroid that formed in the main asteroid belt and has drifted closer to Earth over time. Bennu is about half a kilometer wide and may contain organic molecules similar to those that could have been involved with the start of life on Earth.",
     x: -3.9644043687922794,
     y: -0.5688905328156232,
     z: -4.658701471255561,
@@ -186,7 +192,7 @@ const Satellites = [
     id: 1,
     name: "Moon",
     description:
-      "Earth's only natural satellite, influencing tides and stabilizing its axial tilt.",
+      "The Moon is Earth's only natural satellite. It is a spherical rocky body that orbits Earth at a mean distance of about 384,000 km. Its surface gravity is only about one-sixth of Earth's. The Moon's surface is covered in craters and dark plains called maria.",
     x: -2.1619220049626535,
     y: 0.08058694789071329,
     z: -3.703380723502567,
@@ -197,31 +203,31 @@ const Satellites = [
     id: 2,
     name: "ISS",
     description:
-      "A multinational space station conducting research in low Earth orbit.",
+      "The International Space Station (ISS) is a joint project of five space agencies: NASA (USA), Roscosmos (Russia), ESA (Europe), JAXA (Japan), and CSA (Canada). It is a large spacecraft orbiting Earth, serving as a home for astronauts and cosmonauts and a unique science laboratory. Each agency contributes hardware and expertise, and the station relies on all partners to function.",
     x: -3.067719330988766,
     y: -0.3144062410836539,
     z: -3.0126090838281954,
     texture: "/models/demo/ISS_stationary.glb",
     distance:
-      "Low Earth orbit, vital for scientific research and international collaboration.",
+      "The International Space Station maintains an orbit approximately 250 miles (400 kilometers) above sea level, while the Hubble Space Telescope operates at an altitude of about 340 miles (550 kilometers).",
   },
   {
     id: 3,
     name: "Hubble",
     description:
-      "A space telescope providing high-resolution images and breakthroughs in astrophysics.",
+      "The Hubble Space Telescope, named after astronomer Edwin Hubble, is a large space-based observatory launched in 1990. It has made significant contributions to astronomy, including discovering new galaxies, moons, and planetary systems, and providing insights into the history of the universe.",
     x: -2.076001293412218,
     y: -0.07021984941466593,
     z: -3.6155928689387267,
     texture: "/models/demo/Hubble.glb",
     distance:
-      "Low Earth orbit, crucial for observing distant galaxies and space phenomena.",
+      "The Hubble Space Telescope orbits just above Earth's atmosphere at an altitude of approximately 320 miles (515 km). Hubble orbits at a speed of 17,000 miles per hour (27,000 kph) and completes one orbit approximately every 95 minutes.",
   },
   {
     id: 4,
     name: "Terra",
     description:
-      "NASA's satellite monitoring Earth's climate and environmental changes.",
+      "This is an article about NASA’s Terra satellite. It discusses Terra’s mission and the instruments it carries. Terra was launched in 1999 to study how the Earth system works and how it is changing. It carries five instruments that observe different aspects of the Earth, such as its atmosphere, land, and energy budget. Terra has provided important data about natural hazards and human impact on the planet.",
 
     x: -4.050251792359781,
     y: 0.858987400246678,
@@ -234,36 +240,36 @@ const Satellites = [
     id: 5,
     name: "ACRIMSAT",
     description:
-      "NASA's satellite measuring solar radiation and its impact on Earth's climate.",
+      "The ACRIMSAT satellite was launched in 1999 to measure the sun's total irradiance. It was part of NASA's Earth Observing System program. The satellite's mission was to extend the TSI observational database and relate past and future TSI databases using comparisons with other experiments. It was also designed to investigate the multidecadal upward TSI trend during solar cycles 21-23 and provide a redundant monitoring capability to prevent catastrophic loss of the TSI longterm database.",
     x: -2.0479470282138723,
     y: -0.9660592233329801,
     z: -4.002596022523483,
     texture: "/models/demo/Active Cavity Irradiance Monitor Satellite.glb",
     distance:
-      "Polar orbit, monitoring solar radiation and aiding climate research until 2013.",
+      "It was placed into a high inclination, 700 km. sun-synchronous orbit from which the ACRIM3 instrument monitored total solar irradiance (TSI",
   },
   {
     id: 6,
     name: "TDRS",
     description:
-      "A network of satellites providing communication for NASA's space missions.",
+      "TDRS-13 is a communications satellite operated by NASA. It was launched in 2017 and is part of the Tracking and Data Relay Satellite System. The satellite provides S, Ku, and Ka band communications for other spacecraft. It was damaged during the encapsulation process before launch but was still successfully launched.",
     x: -3.0736491307684597,
     y: -0.4386819818805752,
     z: -2.73167322891193,
     texture: "/models/demo/Tracking and Data Relay Satellites (TDRS).glb",
     distance:
-      "Geosynchronous orbit, ensuring continuous communication with low Earth orbit satellites.",
+      "These TDRSS satellites are all designed and built to be launched to and function in geosynchronous orbit, 35,786 km (22,236 mi) above the surface of the Earth.",
   },
   {
     id: 7,
     name: "Jason",
     description:
-      "A satellite series measuring sea surface height, aiding climate and ocean studies.",
+      "Jason-3 is a satellite that measures sea level. It was launched in 2016 and is part of a series of satellites that have been making measurements of sea level since the 1990s. Jason-3 will help scientists learn more about ocean circulation and climate change.",
     x: -3.5622445066259796,
     y: 0.37813696082780923,
     z: -3.4126251327597608,
     distance:
-      "Polar orbit, providing global data on sea level and ocean circulation.",
+      "Jason-3 operates in low Earth orbit at 1336km altitude. Its main instrument is a radar altimeter that provides measurements of sea surface height, wind speed at the ocean surface and significant wave height.",
     texture: "/models/demo/Jason.glb",
   },
 ];

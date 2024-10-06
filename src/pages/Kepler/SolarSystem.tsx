@@ -1,7 +1,7 @@
 import Model, { Position } from "@/components/Model";
 import Sun from "./Sun";
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, {  useRef } from "react";
 import Earth from "../../components/models/Earth";
 import Saturn from "@/components/Saturn";
 import { useFrame, useThree } from "@react-three/fiber";
@@ -11,6 +11,7 @@ import TestSun from "./Test";
 interface Props {
   onClick: (position: Position, name: string) => void;
   isKepler: boolean;
+  speed: number;
   onLabelClick: (name: string) => void;
 }
 
@@ -18,6 +19,7 @@ const SolarSystemWithKepler: React.FC<Props> = ({
   onClick,
   isKepler,
   onLabelClick,
+  speed
 }) => {
   const { camera } = useThree();
   const textRef = useRef<THREE.Mesh>(null);
@@ -117,6 +119,7 @@ const SolarSystemWithKepler: React.FC<Props> = ({
         />
       ) : (
         <TestSun
+          speed={speed}
           isKepler={isKepler}
           ref={sunRef}
           onClick={(position) => {

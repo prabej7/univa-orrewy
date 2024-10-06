@@ -9,13 +9,18 @@ import Saturn from "@/components/Saturn";
 interface SunProps extends ModelProps {
   position: [number, number, number];
   isKepler: boolean;
+  speed: number;
 }
 
-const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
+const TestSun: React.FC<SunProps> = ({
+  position,
+  onClick,
+  isKepler,
+  speed,
+}) => {
   const [sunTexture] = useTexture(["/textures/sun/8k_sun.jpg"]);
 
   const scaleFactor = 1;
-  const speedFactor = 50;
   const sizeFactor = 3;
   // Planets' positions, radii, and elliptical parameters
 
@@ -37,7 +42,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 3.87 * scaleFactor,
       semiMinorAxis: 3.787 * scaleFactor,
       color: "#714E81",
-      speed: 0.05 * speedFactor,
+      speed: 0.05 * speed,
       texture: "/textures/mercury/mercury.jpg",
       orbitalInclination: 7,
       yPush: 0,
@@ -50,7 +55,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 7.23 * scaleFactor,
       semiMinorAxis: 7.22 * scaleFactor,
       color: "#815913",
-      speed: 0.03 * speedFactor,
+      speed: 0.03 * speed,
       texture: "/textures/venus/venus.jpg",
       orbitalInclination: 3.39,
       yPush: 0,
@@ -63,7 +68,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 10 * scaleFactor,
       semiMinorAxis: 9.99 * scaleFactor,
       color: "#005673",
-      speed: 0.02 * speedFactor,
+      speed: 0.02 * speed,
       texture: "/textures/earth/earth8k.jpg",
       orbitalInclination: 0,
       yPush: 0,
@@ -76,7 +81,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 15.25 * scaleFactor,
       semiMinorAxis: 15.17 * scaleFactor,
       color: "#492C18",
-      speed: 0.015 * speedFactor,
+      speed: 0.015 * speed,
       texture: "/textures/mars/mars.jpg",
       orbitalInclination: 1.85,
       yPush: 0,
@@ -89,7 +94,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 52.04 * scaleFactor,
       semiMinorAxis: 51.98 * scaleFactor,
       color: "#442C24",
-      speed: 0.01 * speedFactor,
+      speed: 0.01 * speed,
       texture: "/textures/jupiter/jupiter.jpg",
       orbitalInclination: 1.31,
       yPush: 0,
@@ -102,7 +107,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 95.82 * scaleFactor,
       semiMinorAxis: 95.67 * scaleFactor,
       color: "#786D4C",
-      speed: 0.008 * speedFactor,
+      speed: 0.008 * speed,
       texture: "/textures/saturn/saturn.jpg",
       orbitalInclination: 2.49,
       yPush: 0,
@@ -115,7 +120,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 192.18 * scaleFactor,
       semiMinorAxis: 191.97 * scaleFactor,
       color: "#4E99A3",
-      speed: 0.007 * speedFactor,
+      speed: 0.007 * speed,
       texture: "/textures/uranus/uranus.jpg",
       orbitalInclination: 0.77,
       yPush: 0,
@@ -128,7 +133,7 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
       semiMajorAxis: 301.1 * scaleFactor,
       semiMinorAxis: 301.08 * scaleFactor,
       color: "#5469AA",
-      speed: 0.006 * speedFactor,
+      speed: 0.006 * speed,
       texture: "/textures/neptune/neptune.jpg",
       orbitalInclination: 1.77,
       yPush: 0,
@@ -139,22 +144,24 @@ const TestSun: React.FC<SunProps> = ({ position, onClick, isKepler }) => {
   ];
 
   return (
-    <group position={position} onClick={(e) => onClick(e.point)}>
-      {/* Sun */}
-      <mesh>
-        <icosahedronGeometry args={[1, 12]} />
-        <meshStandardMaterial map={sunTexture} />
-      </mesh>
+    <>
+      <group position={position} onClick={(e) => onClick(e.point)}>
+        {/* Sun */}
+        <mesh>
+          <icosahedronGeometry args={[1, 12]} />
+          <meshStandardMaterial map={sunTexture} />
+        </mesh>
 
-      {/* Orbits and Planets */}
-      {planets.map((planet) => (
-        <PlanetOrbit
-          isKepler={isKepler}
-          key={planet.name}
-          planet={{ ...planet, position: [...planet.position] }}
-        />
-      ))}
-    </group>
+        {/* Orbits and Planets */}
+        {planets.map((planet) => (
+          <PlanetOrbit
+            isKepler={isKepler}
+            key={planet.name}
+            planet={{ ...planet, position: [...planet.position] }}
+          />
+        ))}
+      </group>
+    </>
   );
 };
 

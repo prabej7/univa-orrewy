@@ -88,6 +88,21 @@ const Menu: React.FC<{
         });
 
         return;
+      } else if (id == planet.id && planet.name == "Sun") {
+        setSelectedModel({
+          type: "sun",
+          id: planet.id,
+          name: planet.name,
+          description: planet.description,
+          texture: planet.texture,
+          size: planet.size,
+          distance: planet.distance,
+          x: planet.x,
+          y: planet.y,
+          z: planet.z,
+        });
+
+        return;
       }
       if (planet.id === id) {
         setSelectedModel({
@@ -267,7 +282,7 @@ const Menu: React.FC<{
                       id: 0,
                       name: "Sun",
                       description:
-                        "The star at the center of our solar system.",
+                        "The Sun is a huge ball of hydrogen and helium held together by its own gravity. It has several regions, including the core, radiative zone, convection zone, photosphere, chromosphere, transition zone, and corona. The Sun's heat and light are powered by nuclear reactions in the core. Energy from the core is carried outward by radiation and convection. The Sun's magnetic fields extend out into space to form the interplanetary magnetic field, which is carried through the solar system by the solar wind.",
                       texture: "/textures/sun/8k_sun.jpg",
                       x: 0.2995466668868829,
                       y: 0.16395455902711653,
