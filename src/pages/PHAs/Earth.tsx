@@ -3,7 +3,7 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { STLLoader } from "three-stdlib";;
+import { STLLoader } from "three-stdlib";
 import PlanetLabel from "../Kepler/PlanetLabel";
 
 const Earth: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
@@ -71,7 +71,7 @@ const Earth: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
       onClick={(e) => onClick(e.point)}
     >
       {/* Earth and Moon */}
-      <PlanetLabel text="Earth" position={[0,0,0]} />
+      <PlanetLabel onClick={() => {}} text="Earth" position={[0, 0, 0]} />
       <mesh
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
@@ -109,11 +109,11 @@ const Earth: React.FC<ModelProps> = ({ position, onClick, isModels }) => {
         <sphereGeometry args={[0.272, 16, 16]} />
         <meshStandardMaterial map={moonTexture} />
       </mesh>
-      
+
       <>
-      {phas.map((pha)=>{
-        return <PHAs phas={pha} />
-      })}
+        {phas.map((pha) => {
+          return <PHAs phas={pha} />;
+        })}
       </>
 
       {hovered && (
@@ -297,7 +297,6 @@ const phas = [
     speed: 0.23, // typical speed in AU/day
     scale: 0.00003,
   },
-
 ];
 
 const PHAs: React.FC<{
@@ -306,8 +305,7 @@ const PHAs: React.FC<{
   let scene: any;
   if (phas.id > 3) {
     scene = useGLTF(phas.model);
-  }else{
-    
+  } else {
   }
 
   const [position, setPosition] = useState<[number, number, number]>([0, 0, 0]);

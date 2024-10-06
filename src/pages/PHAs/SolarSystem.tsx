@@ -93,6 +93,7 @@ const SolarSystemWithKepler: React.FC<Props> = ({ onClick, isKepler }) => {
               <>
                 {planet.name == "Saturn" ? (
                   <Saturn
+                    ringSize={15}
                     onClick={(position) => {
                       onClick(position, "Saturn");
                     }}

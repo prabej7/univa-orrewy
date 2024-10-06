@@ -10,7 +10,7 @@ interface Props {
 
 const SolarSystem: React.FC<Props> = ({ onClick }) => {
   // Define the planets' positions and radii again here
-  
+
   const planets = [
     {
       name: "Mercury",
@@ -42,7 +42,7 @@ const SolarSystem: React.FC<Props> = ({ onClick }) => {
         }}
         position={[0, 0, 0]}
       />
-      
+
       {/* Add a bright point light at the Sun's position */}
       <pointLight
         position={[0, 0, 0]}
@@ -61,6 +61,7 @@ const SolarSystem: React.FC<Props> = ({ onClick }) => {
           <>
             {planet.name == "Saturn" ? (
               <Saturn
+                ringSize={15}
                 onClick={(position) => {
                   onClick(position, "Saturn");
                 }}
