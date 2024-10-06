@@ -9,6 +9,7 @@ import { Comets, Planet, Planets, Satellites } from "@/constants/data";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
 const Home: React.FC = () => {
   const controlsRef = useRef<any>(null);
   const [_, setOpen] = useState(false);
@@ -44,6 +45,37 @@ const Home: React.FC = () => {
       duration: 2,
       ease: "power2.inOut",
       onUpdate: () => controlsRef.current.update(),
+    });
+  };
+
+  const handleLableClick = (name: string) => {
+    const query = name.toLocaleLowerCase();
+    let results = [
+      ...Planets.filter((planet) => planet.name.toLowerCase() === query),
+      ...Comets.filter((comet) => comet.name.toLowerCase() === query),
+      ...Satellites.filter(
+        (satellite) => satellite.name.toLowerCase() === query
+      ),
+    ];
+
+    if (results.length === 0) {
+      results = [
+        ...Planets.filter((planet) =>
+          planet.name.toLowerCase().includes(query)
+        ),
+        ...Comets.filter((comet) => comet.name.toLowerCase().includes(query)),
+        ...Satellites.filter((satellite) =>
+          satellite.name.toLowerCase().includes(query)
+        ),
+      ];
+    }
+
+    const selectedPlanet = results[0];
+
+    handleSolarSystemClick({
+      x: selectedPlanet.x,
+      y: selectedPlanet.y,
+      z: selectedPlanet.z,
     });
   };
 
@@ -145,6 +177,7 @@ const Home: React.FC = () => {
             fade
           />
           <SolarSystem
+            onLabelClick={handleLableClick}
             isKepler={isKepler}
             onClick={(position, name) => {
               handleSolarSystemClick(position);
@@ -159,9 +192,6 @@ const Home: React.FC = () => {
             minPolarAngle={0}
             enableZoom={true}
             enablePan={false}
-            onChange={(e) => {
-              console.log(e?.target);
-            }}
           />
         </Canvas>
       </Suspense>

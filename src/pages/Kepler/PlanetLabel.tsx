@@ -7,10 +7,12 @@ const PlanetLabel = ({
   position,
   text,
   fontSize = 1.5,
+  onClick
 }: {
   position: [number, number, number];
   text: string;
   fontSize?: number;
+  onClick: (name: string) => void;
 }) => {
   const textRef = useRef<THREE.Mesh>(null);
   const { camera } = useThree();
@@ -43,6 +45,7 @@ const PlanetLabel = ({
       fontStyle="italic"
       onPointerOver={() => setHovered(true)} // Set hovered state
       onPointerOut={() => setHovered(false)} // Reset hovered state
+      onClick={() => {onClick(text)}}
     >
       {text}
     </Text>

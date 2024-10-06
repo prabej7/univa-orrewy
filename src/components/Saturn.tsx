@@ -13,9 +13,10 @@ interface Props {
   args: [number, number];
   name: string;
   onClick: (position: Position) => void;
+  ringSize: number;
 }
 
-const Saturn: React.FC<Props> = ({ position, args, texture, onClick }) => {
+const Saturn: React.FC<Props> = ({ position, args, texture, onClick,ringSize=2 }) => {
   const [hovered, setHover] = useState<boolean>(false);
   const [text] = useTexture([texture]);
   const meshRef = useRef<THREE.Mesh>(null);
@@ -30,7 +31,7 @@ const Saturn: React.FC<Props> = ({ position, args, texture, onClick }) => {
     >
       {/* Saturn's ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]} position={position}>
-        <ringGeometry args={[1.2, 2, 64]} />
+        <ringGeometry args={[1.2, ringSize, 64]} />
         <meshBasicMaterial
           color="#A49B72"
           side={THREE.DoubleSide}
