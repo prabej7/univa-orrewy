@@ -1,7 +1,8 @@
 import SearchBox from "./SearchBox";
 import Menu from "./Menu";
 import { useState } from "react";
-
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 const Nav: React.FC<{
   on3DView: (
     position: { x: number; y: number; z: number },
@@ -37,10 +38,11 @@ const Nav: React.FC<{
             </p>
           </div>
         </div>
-        <div>
-          <button onClick={onKepler} className="text-white">
-            Switch to Kepler
-          </button>
+        <div className="flex items-center space-x-2">
+          <Switch id="airplane-mode" onChange={onKepler} onClick={onKepler} />
+          <Label htmlFor="airplane-mode" className="text-white">
+            Kepler's Mode
+          </Label>
         </div>
         <div>
           <ul className="flex items-center gap-12">
