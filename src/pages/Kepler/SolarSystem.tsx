@@ -133,7 +133,7 @@ const SolarSystemWithKepler: React.FC<Props> = ({
       {/* Add a bright point light at the Sun's position */}
       <pointLight
         position={[0, 0, 0]}
-        intensity={1000} // Increased intensity to simulate the brightness of the Sun
+        intensity={100} // Increased intensity to simulate the brightness of the Sun
         distance={500} // Control how far the light spreads
         decay={2} // Natural decay of light intensity
       />
