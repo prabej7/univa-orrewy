@@ -193,9 +193,7 @@ const Home: React.FC = () => {
             enableDamping
             dampingFactor={0.1}
             rotateSpeed={0.5}  // Controls how fast the camera rotates around the target
-            zoomSpeed={2}    // Controls how fast the zoom is
-            minDistance={1}    // Minimum zoom distance (closer zoom)
-            maxDistance={900}
+            
           />
         </Canvas>
       </Suspense>
