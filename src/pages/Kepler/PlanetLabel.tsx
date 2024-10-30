@@ -8,7 +8,7 @@ const PlanetLabel = ({
   text,
   fontSize = 1.5,
   onClick,
-  color
+
 }: {
   position: [number, number, number];
   text: string;

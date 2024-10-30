@@ -11,7 +11,9 @@ import { ReadMore, Loading } from "@/components";
 
 
 const Home: React.FC = () => {
-  const controlsRef = useRef<any>(null);
+  // eslint-disable-next-line
+  const controlsRef = useRef<any>();
+  // eslint-disable-next-line
   const [_, setOpen] = useState(false);
   const [selectedPlanet, setSelectedPlanet] = useState<Planet>();
   const [readMore, setReadMore] = useState<number>();
@@ -83,9 +85,9 @@ const Home: React.FC = () => {
 
   const on3DView = (position: { x: number; y: number; z: number },
     name: string) => {
-    let planet = Planets.find((planet) => planet.name === name);
+    const planet = Planets.find((planet) => planet.name === name);
     if (!planet) {
-      let comet = Comets.find((comet) => comet.name === name);
+      const comet = Comets.find((comet) => comet.name === name);
       if (!comet) {
         const sattelite = Satellites.find(
           (satellite) => satellite.name === name
@@ -126,30 +128,8 @@ const Home: React.FC = () => {
     return handleSolarSystemClick(position);
   }
 
-  const focusOnObjectWithZoom = (object: THREE.Object3D) => {
-    const boundingBox = new THREE.Box3().setFromObject(object);
-    const size = boundingBox.getSize(new THREE.Vector3());
-  
-    const distance = Math.max(size.x, size.y, size.z) * 2; // Adjust multiplier as needed for zoom distance
-    gsap.to(controlsRef.current.object.position, {
-      x: object.position.x + distance,
-      y: object.position.y + distance / 2,
-      z: object.position.z + distance,
-      duration: 2,
-      ease: "power2.inOut",
-      onUpdate: () => controlsRef.current.update(),
-    });
-  
-    gsap.to(controlsRef.current.target, {
-      x: object.position.x,
-      y: object.position.y,
-      z: object.position.z,
-      duration: 2,
-      ease: "power2.inOut",
-      onUpdate: () => controlsRef.current.update(),
-    });
-  };
-  
+
+
 
   return (
     <div className="bg-black h-screen w-screen overflow-clip overflow-x-clip overflow-y-clip">
