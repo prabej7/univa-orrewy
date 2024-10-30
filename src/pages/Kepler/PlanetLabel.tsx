@@ -7,12 +7,14 @@ const PlanetLabel = ({
   position,
   text,
   fontSize = 1.5,
-  onClick
+  onClick,
+  color
 }: {
   position: [number, number, number];
   text: string;
   fontSize?: number;
   onClick: (name: string) => void;
+  color: string
 }) => {
   const textRef = useRef<THREE.Mesh>(null);
   const { camera } = useThree();
@@ -39,13 +41,14 @@ const PlanetLabel = ({
       position={position}
       fontSize={fontSize}
       fontWeight={hovered ? 900 : 600}
-      color={hovered ? "yellow" : "white"} // Change color on hover
+      color={"white"} // Change color on hover
       anchorX="center" // Center horizontally
       anchorY="middle" // Center vertically
       fontStyle="italic"
       onPointerOver={() => setHovered(true)} // Set hovered state
       onPointerOut={() => setHovered(false)} // Reset hovered state
-      onClick={() => {onClick(text)}}
+      onClick={() => { onClick(text) }}
+
     >
       {text}
     </Text>

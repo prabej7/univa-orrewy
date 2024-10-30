@@ -85,11 +85,12 @@ export const CometDemoModel: React.FC<{
   texture: string;
 }> = ({ texture }) => {
   const [cometTexture] = useTexture([texture]);
+  const [text] = useTexture(["/textures/asteriods/default.png"])
   return (
     <>
       <mesh position={[0, 0, 0]} scale={[0.7, 0.7, 0.7]}>
         <primitive object={cometTexture} />
-        <meshStandardMaterial color="white" />
+        <meshStandardMaterial map={text} />
       </mesh>
     </>
   );

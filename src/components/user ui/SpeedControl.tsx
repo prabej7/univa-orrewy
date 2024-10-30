@@ -2,10 +2,12 @@ import { ChangeEvent } from "react";
 
 const SpeedControl: React.FC<{
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}> = ({ onChange }) => {
+  value: number;
+}> = ({ onChange,value }) => {
+  
   return (
     <div className="relative">
-      <input type="range" onChange={onChange} />
+      <input type="range" onChange={onChange} value={value} />
       <p className="font-semibold text-xl relative right-12 text-white">
         Change Speed by Sliding.
       </p>

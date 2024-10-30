@@ -1,5 +1,5 @@
 import "./App.css";
-import { Kepler } from "./pages";
+import Kepler from "./pages/Kepler/index"
 
 function App() {
   return (

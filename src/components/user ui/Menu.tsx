@@ -526,7 +526,7 @@ const Menu: React.FC<{
           <div className="">
             <Suspense fallback={<div>Loading...</div>}>
               <Canvas>
-                <ambientLight />
+                <ambientLight intensity={2} />
                 <pointLight position={[10, 10, 10]} />
                 <group key={selectedModel.id}>
                   <ShowDemoModel

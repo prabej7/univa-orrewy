@@ -12,7 +12,7 @@ interface SunProps extends ModelProps {
   speed: number;
 }
 
-const TestSun: React.FC<SunProps> = ({
+const Sun: React.FC<SunProps> = ({
   position,
   onClick,
   isKepler,
@@ -147,6 +147,7 @@ const TestSun: React.FC<SunProps> = ({
     <>
       <group position={position} onClick={(e) => onClick(e.point)}>
         {/* Sun */}
+        
         <mesh>
           <icosahedronGeometry args={[1, 12]} />
           <meshStandardMaterial map={sunTexture} />
@@ -289,4 +290,4 @@ const PlanetOrbit = ({
   );
 };
 
-export default TestSun;
+export default Sun;
