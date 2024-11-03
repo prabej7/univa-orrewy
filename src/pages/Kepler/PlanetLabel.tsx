@@ -48,7 +48,7 @@ const PlanetLabel = ({
       onPointerOver={() => setHovered(true)} // Set hovered state
       onPointerOut={() => setHovered(false)} // Reset hovered state
       onClick={() => { onClick(text) }}
-
+      rotation={[0, 0, 0]}
     >
       {text}
     </Text>

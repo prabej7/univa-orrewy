@@ -1,8 +1,10 @@
-import  { Position } from "@/components/Model";
+import { Position } from "@/components/Model";
 import Sun from "./Sun";
 import * as THREE from "three";
 import React, { useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
+import { NEOs } from "@/components";
+import { nearEarthObjects } from "@/constants/neos";
 
 interface Props {
   onClick: (position: Position, name: string) => void;
@@ -35,7 +37,7 @@ const SolarSystemWithKepler: React.FC<Props> = ({
   // Define the planets' positions and radii again here
   const sunRef = useRef<THREE.Group>(null);
 
-  
+
 
   useFrame(({ camera }) => {
     if (textRef.current) {
@@ -43,19 +45,35 @@ const SolarSystemWithKepler: React.FC<Props> = ({
     }
   });
 
+  
+
+
+
+
   return (
     <>
       {/* Sun - Central Light Source */}
 
-        <Sun
+      <Sun
         onPlanetClick={onClick}
         onLabelClick={onLabelClick}
         speed={speed}
-          isKepler={isKepler}
-          ref={sunRef}
-          position={[0, 0, 0]}
-        />
-   
+        isKepler={isKepler}
+        ref={sunRef}
+        position={[0, 0, 0]}
+      />
+
+      {nearEarthObjects.map((neo, index) => {
+
+        return (
+          <NEOs
+            key={index} // Use index or a unique property from the neo object
+            orbitalElements={neo.orbitalElements}
+
+            name={neo.name}
+          />
+        );
+      })}
 
 
       <ambientLight intensity={0.5} />

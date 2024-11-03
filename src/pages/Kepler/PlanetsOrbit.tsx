@@ -161,6 +161,8 @@ const PlanetOrbit = ({
             />
           </group>
         )}
+        <pointLight position={[0, 0, 0]} intensity={2} />
+
       </group>
     </>
   );
