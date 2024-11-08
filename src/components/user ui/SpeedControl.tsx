@@ -7,7 +7,7 @@ const SpeedControl: React.FC<{
   
   return (
     <div className="relative">
-      <input type="range" onChange={onChange} value={value} />
+      <input type="range" defaultValue={0.01} max={100} min={0.01}  onChange={onChange} value={value} />
       <p className="font-semibold text-xl relative right-12 text-white">
         Change Speed by Sliding.
       </p>

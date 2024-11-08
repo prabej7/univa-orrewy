@@ -1,3 +1,4 @@
 import SearchBox from "./SearchBox";
 import Nav from "./Nav";
-export { SearchBox, Nav };
+import OptionsToShow from "./OptionsToShow";
+export { SearchBox, Nav, OptionsToShow };

@@ -1,6 +1,6 @@
 import SearchBox from "./SearchBox";
 import Menu from "./Menu";
-import { useState } from "react";
+
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 const Nav: React.FC<{
@@ -12,16 +12,14 @@ const Nav: React.FC<{
   onClose: () => void;
   onKepler: () => void;
 }> = ({ on3DView, onReadMore, onClose, onKepler }) => {
-  const [_, setSearchBoxOpen] = useState(false);
+
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "k" && e.ctrlKey) {
       e.preventDefault();
-      setSearchBoxOpen(true);
+      
     }
-    if (e.key === "Escape") {
-      setSearchBoxOpen(false);
-    }
+
   });
 
   return (
@@ -39,7 +37,7 @@ const Nav: React.FC<{
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <Switch id="airplane-mode" onChange={onKepler} onClick={onKepler} />
+          <Switch id="airplane-mode" onChange={onKepler}  onClick={onKepler} />
           <Label htmlFor="airplane-mode" className="text-white">
             Kepler's Mode
           </Label>
@@ -47,7 +45,6 @@ const Nav: React.FC<{
         <div>
           <ul className="flex items-center gap-12">
             <li
-              onClick={() => setSearchBoxOpen(true)}
               className="cursor-pointer"
             >
               <SearchBox on3DView={on3DView} />

@@ -4,7 +4,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import gsap from "gsap";
 import * as THREE from "three";
 import SolarSystem from "./SolarSystem";
-import { Nav } from "../../components/user ui";
+import { Nav, OptionsToShow } from "../../components/user ui";
 import { Comets, Planet, Planets, Satellites } from "@/constants/data";
 import SpeedControl from "@/components/user ui/SpeedControl";
 import { ReadMore, Loading } from "@/components";
@@ -18,7 +18,8 @@ const Home: React.FC = () => {
   const [selectedPlanet, setSelectedPlanet] = useState<Planet>();
   const [readMore, setReadMore] = useState<number>();
   const [isKepler, setIsKepler] = useState(false);
-  const [speed, setSpeed] = useState<number>(2);
+  const [speed, setSpeed] = useState<number>(0.01);
+  const [neos, setNeos] = useState<boolean>(false);
 
   const handleSolarSystemClick = (position: {
     x: number;
@@ -143,6 +144,7 @@ const Home: React.FC = () => {
           />
         </div>
       )}
+      <OptionsToShow onToggle={(value) => setNeos(value)} />
       <Nav
         onKepler={() => setIsKepler(!isKepler)}
         onClose={() => {
@@ -181,6 +183,7 @@ const Home: React.FC = () => {
               const planet = Planets.find((planet) => planet.name === name);
               setSelectedPlanet(planet);
             }}
+            isNeos={neos}
           />
 
           <OrbitControls
@@ -193,7 +196,7 @@ const Home: React.FC = () => {
             enableDamping
             dampingFactor={0.1}
             rotateSpeed={0.5}  // Controls how fast the camera rotates around the target
-            
+
           />
         </Canvas>
       </Suspense>
